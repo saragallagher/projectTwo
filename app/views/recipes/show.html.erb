@@ -1,7 +1,10 @@
 <h1> <%= @recipe.title%> </h1>
+| <%= link_to 'Return to Profile', user_path(@recipe.user) %> |
+
 <% if @recipe.user == current_user %>
-<%= link_to 'Edit', edit_recipe_path(@recipe)  %>
-<%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE' %>
+<%= link_to 'Edit', edit_recipe_path(@recipe)  %> |
+<%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE' %> |
+
 
 <%end %>
 

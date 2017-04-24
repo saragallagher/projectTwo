@@ -9,12 +9,12 @@
   </head>
 
   <body>
-    <%= link_to 'Home', users_path %> | <%= link_to 'About', about_path %> |
+    | <%= link_to 'Home', users_path %> | <%= link_to 'About', about_path %> |
 
     <% if logged_in? %>
-    <%= link_to 'Logout', logout_path, {method: 'DELETE'} %>
+    <%= link_to 'Logout', logout_path, {method: 'DELETE'} %> |
     <%else %>
-    <%= link_to 'Login', new_session_path %>
+    <%= link_to 'Login', new_session_path %> |
     <%end %>
     <%= yield %>
   </body>
