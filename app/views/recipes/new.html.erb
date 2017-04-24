@@ -1,2 +1,11 @@
 <h1>Recipes#new</h1>
 <p>Find me in app/views/recipes/new.html.erb</p>
+
+<%= form_for @recipe do |f| %>
+  <%= f.text_field :title, placeholder: 'Title' %>
+  <%= f.text_area :ingredients, placeholder: 'Ingredients' %>
+  <%= f.text_area :instructions, placeholder: 'Instructions' %>
+  <%= f.text_field :difficulty_level, placeholder: 'Difficulty Level' %>
+  <%= f.text_field :time, placeholder: 'Time' %>
+  <%= f.submit %>
+<%end %>

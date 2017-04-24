@@ -1,4 +1,17 @@
 <h3><%= @user.name %></h3>
+<%= link_to 'Edit User', edit_user_path %>
+<%= link_to 'Add Recipe', new_recipe_path  %>
 
+
+<h4>My Recipes</h4>
+<ul>
+<% @user.recipes.each do |p| %>
+  <li><%= p.title %>: <%= p.difficulty_level %>
+     <%= link_to 'Edit', edit_recipe_path(p.user) %>
+
+  </li>
+
+<%end %>
+</ul>
 
 <%= link_to 'Back', users_path %>
