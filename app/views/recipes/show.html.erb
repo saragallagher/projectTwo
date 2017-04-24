@@ -1,2 +1,24 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1> <%= @recipe.title%> </h1>
+<% if @recipe.user == current_user %>
+<%= link_to 'Edit', edit_recipe_path(@recipe)  %>
+<%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE' %>
+
+<%end %>
+
+
+<h2>Ingredients</h2>
+<p>
+  <%= @recipe.ingredients %>
+</p>
+
+<h2>Instructions</h2>
+
+<p>
+  <%= @recipe.instructions %>
+</p>
+
+<h2>Difficulty Level & Expected Time</h2>
+
+<p>
+  <%= @recipe.difficulty_level %> : <%= @recipe.time %>
+</p>

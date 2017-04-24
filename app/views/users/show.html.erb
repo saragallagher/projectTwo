@@ -11,7 +11,7 @@
 <h4>Recipes</h4>
 <ul>
 <% @user.recipes.each do |p| %>
-  <li><%= p.title %>: <%= p.difficulty_level %>
+  <li><%= link_to p.title, recipe_path(p) %>: <%= p.difficulty_level %>
     <br>
     <% if @user == current_user %>
 
