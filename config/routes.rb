@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :recipes
+  get '/about'=> 'about#index', as: :about
 
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]

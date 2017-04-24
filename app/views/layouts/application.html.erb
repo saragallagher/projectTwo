@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <%= link_to 'Home', users_path %> |
+    <%= link_to 'Home', users_path %> | <%= link_to 'About', about_path %> |
 
     <% if logged_in? %>
     <%= link_to 'Logout', logout_path, {method: 'DELETE'} %>
