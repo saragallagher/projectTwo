@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingredients: MyString
+  text: MyString
+  instructions: MyText
+  time: MyString
+  difficulty_level: 1
+  user: one
+
+two:
+  ingredients: MyString
+  text: MyString
+  instructions: MyText
+  time: MyString
+  difficulty_level: 1
+  user: two

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :recipes
+
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]
 
