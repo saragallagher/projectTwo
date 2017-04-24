@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <%= link_to 'Home', users_path %> |
+
     <% if logged_in? %>
     <%= link_to 'Logout', logout_path, {method: 'DELETE'} %>
     <%else %>

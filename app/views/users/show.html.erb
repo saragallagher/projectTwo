@@ -1,17 +1,24 @@
-<h3><%= @user.name %></h3>
+<% if @user == current_user %>
+<h3>My Profile</h3>
 <%= link_to 'Edit User', edit_user_path %>
 <%= link_to 'Add Recipe', new_recipe_path  %>
+<%else %>
+<h3><%= @user.name %></h3>
+
+<%end %>
 
 
-<h4>My Recipes</h4>
+<h4>Recipes</h4>
 <ul>
 <% @user.recipes.each do |p| %>
   <li><%= p.title %>: <%= p.difficulty_level %>
-     <%= link_to 'Edit', edit_recipe_path(p.user) %>
+    <br>
+    <% if @user == current_user %>
+
+     <%= link_to 'Delete', recipe_path(p), method: 'DELETE' %>
+     <%end %>
 
   </li>
 
 <%end %>
 </ul>
-
-<%= link_to 'Back', users_path %>
