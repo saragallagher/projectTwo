@@ -5,13 +5,28 @@
 <%else %>
 <h3><%= @user.name %></h3>
 
+  <%if current_user_is_following(current_user.id, @user.id) %>
+    <button id='unfollow-button'><%= link_to 'Following', unfollow_user_path, method: :post%></button>
+  <%else %>
+    <button id='follow-button'><%= link_to 'Follow', follow_user_path, method: :post%></button>
+  <%end %>
+  <%end %>
+  Followers:
+
+<% @user.followers.each do |p| %>
+<%= p.name %> |
+<%end %>
+Following:
+
+<% @user.following.each do |p| %>
+<%= p.name %> |
 <%end %>
 
 
 <h3>Recipes:</h3>
 <ul>
   Name: Difficulty Level
-  
+
 <% @user.recipes.each do |p| %>
   <li><%= link_to p.title, recipe_path(p) %>: <%= p.difficulty_level %>
 
