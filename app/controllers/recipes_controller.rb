@@ -1,11 +1,12 @@
 class RecipesController < ApplicationController
+  before_action :owned_recipe, only: [:edit, :update, :destroy]
   def index
     @recipes = Recipe.of_followed_users(current_user.following).order('created_at DESC')
   end
 
   def show
     @recipe = Recipe.find(params[:id])
-
+    @comments = Comment.where(recipe_id: @recipe).order('created_at DESC')
   end
 
   def new
@@ -51,5 +52,12 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :ingredients, :instructions, :difficulty_level, :time)
+  end
+
+  def owned_recipe
+    @recipe = Recipe.find(params[:id])
+    unless current_user == @recipe.user
+      redirect_to users_path
+    end
   end
 end

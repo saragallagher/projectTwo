@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+
   get 'relationships/follow_user'
 
   get 'relationships/unfollow_user'
 
-  resources :recipes
+
+  resources :recipes do
+    resources :comments
+  end
+
   get '/about'=> 'about#index', as: :about
 
   delete '/logout' => 'sessions#destroy', as: :logout
