@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.of_followed_users(current_user.following).order('created_at DESC')
   end
 
   def show
