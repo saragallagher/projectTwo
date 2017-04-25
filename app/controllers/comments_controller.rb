@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :find_post
+  before_action :find_recipe
+  before_action :find_comment, only: [:destroy, :edit, :update]
   def create
 
     @comment = @recipe.comments.create(comment_params)
@@ -12,18 +13,34 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    @recipe = Recipe.find(params[:id])
+  def edit
 
-    @comment = @recipe.comments.find(params[:id])
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to recipe_path(@recipe)
+    else
+      render 'edit'
+    end
+
+  end
+
+
+
+  def destroy
     @comment.destroy
-    redirect_to users_path
+    redirect_to recipe_path(@recipe)
   end
 
   private
 
-  def find_post
+  def find_recipe
     @recipe = Recipe.find(params[:recipe_id])
+  end
+
+  def find_comment
+    @comment = @recipe.comments.find(params[:id])
   end
 
   def comment_params
