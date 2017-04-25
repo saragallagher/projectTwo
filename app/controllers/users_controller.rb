@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize, only: [:show]
-<<<<<<< HEAD
 
-
-=======
-  # validates :user_name, presence: true, length: {min: 4, maximum: 16}
->>>>>>> comments
   def index
     @users = User.all
   end
