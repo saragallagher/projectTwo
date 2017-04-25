@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize, only: [:show]
-  # validates :user_name, presence: true, length: {min: 4, maximum: 16} 
+  # validates :user_name, presence: true, length: {min: 4, maximum: 16}
   def index
     @users = User.all
   end
@@ -41,6 +41,6 @@ class UsersController < ApplicationController
   end
   private
   def user_params
-    params.require(:user).permit(:name, :email, :bio, :password)
+    params.require(:user).permit(:name, :user_name, :email, :bio, :password)
   end
 end

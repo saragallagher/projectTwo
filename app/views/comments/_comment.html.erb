@@ -1,0 +1,8 @@
+<% @comments.each do |comment| %>
+<p><%= comment.content %></p>
+<h4><%= comment.user.name  </h4>
+<%= time_ago_in_words(comment.created_at) %>
+
+<%end %>
+Add a Comment:
+<%= render 'comments/form' %>

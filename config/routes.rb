@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :comments
   end
+
   get '/about'=> 'about#index', as: :about
 
   delete '/logout' => 'sessions#destroy', as: :logout
