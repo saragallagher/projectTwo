@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize, only: [:show]
+  # validates :user_name, presence: true, length: {min: 4, maximum: 16} 
   def index
     @users = User.all
   end
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-  
+
   end
   private
   def user_params
