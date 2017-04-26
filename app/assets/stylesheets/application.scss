@@ -14,7 +14,22 @@
  @import "bootstrap";
 
 
+.about-bg{
+  padding-top: 4em;
 
-.background-img{
-  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: url("https://images.unsplash.com/photo-1466637574441-749b8f19452f?dpr=0.75&auto=format&fit=crop&w=1080&h=1080&q=80&cs=tinysrgb&crop=&bg=");
+}
+
+.jumbotron{
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+}
+
+
+.comments{
+
+  padding: 1em;
+  border: 1px solid black;
 }

@@ -1,7 +1,7 @@
 <% if @user == current_user %>
 <h3>My Profile</h3>
-| <%= link_to 'Edit User', edit_user_path %> |
-<%= link_to 'Add Recipe', new_recipe_path  %> |
+<%= link_to 'Edit User', edit_user_path, class: 'btn btn-info' %>
+<%= link_to 'Add Recipe', new_recipe_path, class: 'btn btn-info'  %>
 <%else %>
 <h3><%= @user.user_name %></h3>
 
@@ -13,22 +13,20 @@
   <%end %>
   Followers:
 
-<% @user.followers.each do |p| %>
-<%= p.name %> |
-<%end %>
+<%= @user.followers.count %> |
+
 Following:
 
-<% @user.following.each do |p| %>
-<%= p.name %> |
-<%end %>
+<%= @user.following.count %> 
+
 
 
 <h3>Recipes:</h3>
 <ul>
-  Name: Difficulty Level
+
 
 <% @user.recipes.each do |p| %>
-  <li><%= link_to p.title, recipe_path(p) %>: <%= p.difficulty_level %>
+  <li><%= link_to p.title, recipe_path(p) %>
 
 
   </li>

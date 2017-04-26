@@ -1,31 +1,36 @@
 <h1> <%= @recipe.title%> </h1>
-| <%= link_to 'Return to Profile', user_path(@recipe.user) %> |
-
+<%= link_to 'Return to Profile', user_path(@recipe.user),class: 'btn btn-info' %>
 <% if @recipe.user == current_user %>
-<%= link_to 'Edit', edit_recipe_path(@recipe)  %> |
-<%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE' %> |
-
-
+<%= link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-info'  %>
+<%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE',class: 'btn btn-info' %>
 <%end %>
 
-
+<div class="row">
+<div class="col-md-3">
 <h2>Ingredients</h2>
 <p>
   <%= @recipe.ingredients %>
 </p>
-
+</div>
+<div class="col-md-3">
 <h2>Instructions</h2>
 
 <p>
   <%= @recipe.instructions %>
 </p>
-
-<h2>Difficulty Level & Expected Time</h2>
+</div>
+<div class="col-md-3">
+<h2>Difficulty Level </h2>
 
 <p>
-  <%= @recipe.difficulty_level %> : <%= @recipe.time %>
+  <%= @recipe.difficulty_level %>
 </p>
+</div>
+<div class="col-md-3">
+  <h2>Expected Time</h2>
+  <p><%= @recipe.time %></p>
+</div>
+</div>
 
-
-<h3>Comments:</h3>
-<%= render 'comments/comment' %>
+    
+    <%= render 'comments/comment' %>

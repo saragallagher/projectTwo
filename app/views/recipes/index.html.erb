@@ -1,10 +1,9 @@
-<ul>
-
-    <% @recipes.each do |l| %>
-    <li>
+<% @recipes.each_slice(3) do |row| %>
+    <div class="row">
+    <% row.each do |l| %>
+    <div class="col-md-4">
     <%=link_to l.title, user_path(l.user) %>
-      </li>
-    <%end %>
-
-
-</ul>
+  </div>
+<%end %>
+</div>
+<% end %>

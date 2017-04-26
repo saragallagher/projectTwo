@@ -1,6 +1,19 @@
-<div class="jumbotron background-img .img-responsive" >
-  <h1>Welcome to Project Two</h1>
-  <p><p>Here is all the infromation about this application and how to use it</p>
-  online cookbook that you can share with your friends</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Create Account</a></p>
+<div class="about-bg">
+<div class="jumbotron">
+      <h1>Welcome </h1>
+      <p>
+        Here is all the infromation about this application and how to use it.
+        Online cookbook that you can share with your friends.
+
+        Selvage leggings humblebrag, activated charcoal migas messenger bag pinterest williamsburg mumblecore hexagon 8-bit. Photo booth freegan blue bottle, normcore viral ugh iPhone asymmetrical tumblr brunch tote bag microdosing gastropub kale chips. Glossier fanny pack franzen poke lumbersexual, raw denim try-hard pork belly narwhal. Scenester VHS keytar, green juice pok pok yuccie air plant truffaut portland edison bulb stumptown man braid. Small batch vice godard chia, cliche tofu raw denim kickstarter drinking vinegar blog cornhole direct trade readymade cred hashtag. Austin cliche pitchfork, mlkshk kinfolk copper mug waistcoat microdosing vaporware lumbersexual glossier. Vice post-ironic hot chicken, williamsburg disrupt brunch venmo lomo etsy bitters raw denim wayfarers fashion axe blue bottle.
+
+      </p>
+
+      <% if logged_in? %>
+          <%=link_to "View My Profile", user_path(current_user),class: 'btn btn-primary btn-lg' %>
+      <%else %>
+          <%=link_to "Sign In", new_session_path,class: 'btn btn-success btn-lg'  %>
+          <%=link_to "Create Account", new_user_path,class: 'btn btn-primary btn-lg'  %>
+    <%end %>
+</div>
 </div>
