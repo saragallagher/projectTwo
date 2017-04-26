@@ -9,13 +9,10 @@
   </head>
 
   <body>
-    | <%= link_to 'Home', users_path %> | <%= link_to 'About', about_path %> | <%= link_to 'Recipes', recipes_path %> |
+ <%= render 'partials/navbar' %>
+ <div class="container">
+   <%= yield %>
 
-    <% if logged_in? %>
-    <%= link_to 'Logout', logout_path, {method: 'DELETE'} %> |
-    <%else %>
-    <%= link_to 'Login', new_session_path %> |
-    <%end %>
-    <%= yield %>
+ </div>
   </body>
 </html>
