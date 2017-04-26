@@ -2,6 +2,11 @@
 
 <ul>
 <% @users.each do |u| %>
-<li><%= link_to u.name, user_path(u.id) %></li>
+  <li><strong><%= link_to u.name, user_path(u.id) %></strong>:
+<% if u.recipes.count < 2 %>
+  <%= u.recipes.count %> Recipe</li>
+<% elsif u.recipes.count == 0 || u.recipes.count > 1%>
+  <%= u.recipes.count %> Recipes</li>
+<%end %>
 <%end %>
 </ul
