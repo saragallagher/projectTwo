@@ -1,7 +1,15 @@
 class RecipesController < ApplicationController
   before_action :owned_recipe, only: [:edit, :update, :destroy]
   def index
-    @recipes = Recipe.of_followed_users(current_user.following).order('created_at DESC')
+    # Recipes of followed users
+    # @recipes = Recipe.of_followed_users(current_user.following).order('created_at DESC')
+    @recipes = Recipe.all
+    if params[:search]
+      @recipes = Recipe.tagged_with(params[:search]).order("created_at DESC")
+      # @recipes = Recipe.search(params[:search]).order('created_at DESC')
+    else
+      @recipe = Recipe.all.order('created_at DESC')
+    end
   end
 
   def show
@@ -26,7 +34,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    
+
   end
 
   def update
