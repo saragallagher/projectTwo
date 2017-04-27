@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   def index
     # Recipes of followed users
     # @recipes = Recipe.of_followed_users(current_user.following).order('created_at DESC')
-    @recipes = Recipe.all
+    @recipes = Recipe.all.order('created_at DESC')
     if params[:search]
       @recipes = Recipe.tagged_with(params[:search]).order("created_at DESC")
       # @recipes = Recipe.search(params[:search]).order('created_at DESC')
