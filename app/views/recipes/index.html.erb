@@ -1,10 +1,12 @@
+<legend class="col-md-12">Discover Recipes</legend>
 <% @recipes.each_slice(3) do |row| %>
     <div class="row">
     <% row.each do |l| %>
-    <div class="col-md-4">
+    <div class="col-md-12 box">
     <h4><%=link_to l.title, user_path(l.user)  %></h4>
     <p> <%= l.instructions %> </p>
-    <h5> <%=l.user.name%> </h5>
+    <h5> <%=l.user.name%>  </h5>
+    <div class="tags"><%= l.tag_list %></div>
   </div>
 <%end %>
 </div>
