@@ -1,10 +1,16 @@
 <h3><%= @user.name %>'s followers: </h3>
-<ul>
-<% if @user.followers.count == 0 %>
-  <%= @user.name %> does not have any followers
-<%else %>
-<%@user.followers.each do |n| %>
-<li><%= link_to n.name, user_path(n.id) %></li>
-<%end %>
-</ul>
-<%end %>
+  <ul>
+    <% if @user.followers.count == 0 %>
+      <%= @user.name %> does not have any followers
+    <%else %>
+      <%@user.followers.each do |n| %>
+        <li><strong><%= link_to n.name, user_path(n.id) %></strong>:
+          <% if n.recipes.count < 2 %>
+            <%= n.recipes.count %> Recipe</li>
+          <% elsif n.recipes.count == 0 || n.recipes.count > 1%>
+              <%= n.recipes.count %> Recipes</li>
+      
+            <%end %>
+      <%end %>
+    </ul>
+    <%end %>
