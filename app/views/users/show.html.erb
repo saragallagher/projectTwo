@@ -15,9 +15,13 @@
 
 <%= @user.followers.count %> |
 
-Following:
+<%= link_to 'Following:', following_path %>  
 
-<%= @user.following.count %>
+<%= @user.following.count %> |
+
+Recipes:
+
+<%= @user.recipes.count %>
 
 <%if current_user_is_following(current_user.id, @user.id) || @user == current_user %>
 
@@ -35,5 +39,5 @@ Following:
 </ul>
 
 <%else %>
-  <p>Follow <%= @user.user_name %> to see recipes!</p>
+  <h3>Follow <%= @user.user_name %> to see recipes!</h3>
 <%end %>

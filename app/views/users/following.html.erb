@@ -1,0 +1,6 @@
+<h3><%= @user.name %> is following: </h3>
+<ul>
+<%@user.following.each do |n| %>
+<li><%= link_to n.name, user_path(n.id) %></li>
+<%end %>
+</ul>

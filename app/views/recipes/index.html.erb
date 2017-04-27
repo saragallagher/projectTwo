@@ -4,7 +4,7 @@
         <div class="row">
         <% row.each do |l| %>
         <div class="col-md-12 box">
-        <h4><%=link_to l.title, user_path(l.user)  %></h4>
+        <h4><%=link_to l.title, recipe_path(l.id)  %></h4>
         <p> <%= l.instructions %> </p>
         <h5> <%=l.user.name%>  </h5>
         <div class="tags"><%= l.tag_list %></div>

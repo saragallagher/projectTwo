@@ -37,6 +37,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @user = User.find(params[:id])
+    @users = User.all
+  end
+
   def destroy
 
   end
