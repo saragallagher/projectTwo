@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
     @recipe.user = current_user
 
     if @recipe.save
+      flash[:success] = "New Recipe Created"
       redirect_to user_path(@recipe.user)
     else
       redirect_to new_recipe_path
@@ -43,6 +44,7 @@ class RecipesController < ApplicationController
     @recipe.user = current_user
 
     if @recipe.save
+      flash[:success] = "Recipe has been updated"
       redirect_to user_path(@recipe.user)
     else
       redirect_to edit_recipe_path

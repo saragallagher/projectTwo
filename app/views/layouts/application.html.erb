@@ -11,6 +11,16 @@
   <body>
  <%= render 'partials/navbar' %>
  <div class="container">
+
+   <%if flash[:alert] %>
+   <div class="alert alert-danger">
+      <%= flash[:alert] %>
+   </div>
+   <%elsif flash[:success] %>
+    <div class="alert alert-success">
+      <%= flash[:success] %>
+    </div>
+   <%end %>
    <%= yield %>
 
  </div>
