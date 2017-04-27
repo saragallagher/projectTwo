@@ -2,7 +2,9 @@
     <div class="row">
     <% row.each do |l| %>
     <div class="col-md-4">
-    <%=link_to l.title, user_path(l.user) %>
+    <h4><%=link_to l.title, user_path(l.user)  %></h4>
+    <p> <%= l.instructions %> </p>
+    <h5> <%=l.user.name%> </h5>
   </div>
 <%end %>
 </div>

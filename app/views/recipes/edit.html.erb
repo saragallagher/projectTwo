@@ -1,7 +1,7 @@
 
 
 <%= form_for @recipe, :html => {class: 'new_user form-horizontal'} do |f| %>
-  <div class="row"><legend class="col-md-4 col-md-offset-4">Add a Recipe:</legend></div>
+  <div class="row"><legend class="col-md-4 col-md-offset-4">Update Recipe:</legend></div>
 
   <fieldset>
       <div class="form-group">
@@ -36,7 +36,7 @@
       </div>
       <div class="form-group">
         <div class="col-md-8 col-md-offset-4">
-          <%= f.submit 'Create Recipe', class: 'btn btn-success' %>
+          <%= f.submit 'Update Recipe', class: 'btn btn-success' %>
         </div>
       </div>
   </fieldset>

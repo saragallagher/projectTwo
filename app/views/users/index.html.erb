@@ -1,5 +1,5 @@
-<h2>Users:</h2>
 
+<h2>Users:</h2>
 <ul>
 <% @users.each do |u| %>
   <li><strong><%= link_to u.name, user_path(u.id) %></strong>:
@@ -9,4 +9,4 @@
   <%= u.recipes.count %> Recipes</li>
 <%end %>
 <%end %>
-</ul
+</ul>
