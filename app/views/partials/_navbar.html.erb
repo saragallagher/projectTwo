@@ -25,8 +25,8 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to 'My Profile', user_path(current_user)%></li>
-              <li><%= link_to 'Discover Profiles', users_path %></li>
               <li><%= link_to 'Recipes', recipes_path %> </li>
+              <li><%= link_to 'All Profiles', users_path %></li>
 
               <li role="separator" class="divider"></li>
               <li><%= link_to 'Logout', logout_path, method: 'DELETE' %></li>
