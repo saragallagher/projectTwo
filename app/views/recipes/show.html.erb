@@ -9,7 +9,10 @@
 <div class="col-md-3">
 <h2>Ingredients</h2>
 <p>
-  <%= @recipe.ingredients %>
+  <% @i = @recipe.ingredients %>
+  <% @i.each_line do |line| %>
+<li> <%= line %> </li>
+  <%end %>
 </p>
 </div>
 <div class="col-md-3">
@@ -32,5 +35,5 @@
 </div>
 </div>
 
-    
+
     <%= render 'comments/comment' %>
