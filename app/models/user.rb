@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :following, through: :following_relationships, source: :following
 
   validates :user_name, presence: true, length: {minimum: 4, maximum: 16}
-  has_many :recipes
-  has_many :comments
+
+  has_many :comments, dependent: :destroy
 
 end

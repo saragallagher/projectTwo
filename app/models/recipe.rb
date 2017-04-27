@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
 
   scope :of_followed_users, -> (following_users) {where user_id: following_users}
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   # def self.search(search)
   #
