@@ -6,23 +6,83 @@
 <h3><%= @user.user_name %></h3>
 
   <%if current_user_is_following(current_user.id, @user.id) %>
-    <button id='unfollow-button'><%= link_to 'Following', unfollow_user_path, method: :post%></button>
+    <%= link_to 'Following', unfollow_user_path, method: :post, id:'unfollow-button',class:"btn btn-primary"%>
   <%else %>
-    <button id='follow-button'><%= link_to 'Follow', follow_user_path, method: :post%></button>
+    <%= link_to 'Follow', follow_user_path, method: :post, id:'follow-button',class:"btn btn-primary"%>
   <%end %>
   <%end %>
-  <%= link_to 'Followers:', follower_path %>  
 
 
-<%= @user.followers.count %> |
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#followers">Followers</button>
 
-<%= link_to 'Following:', following_path %>
 
-<%= @user.following.count %> |
+<div id="followers" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-Recipes:
+    <!-- Modal content-->
+<div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= @user.name %>'s followers: </h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <% if @user.followers.count == 0 %>
+            <%= @user.name %> does not have any followers
+          <%else %>
+            <%@user.followers.each do |n| %>
+              <li><strong><%= link_to n.name, user_path(n.id) %></strong>:
+                <% if n.recipes.count < 2 %>
+                  <%= n.recipes.count %> Recipe</li>
+                <% elsif n.recipes.count == 0 || n.recipes.count > 1%>
+                    <%= n.recipes.count %> Recipes</li>
 
-<%= @user.recipes.count %>
+                  <%end %>
+            <%end %>
+          </ul>
+          <%end %>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#following">Following</button>
+
+
+
+<div id="following" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= @user.name %> is following: </h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+        <% if @user.following.count == 0 %>
+          <%= @user.name %> is not following anyone.
+        <%else %>
+        <%@user.following.each do |n| %>
+        <li><strong><%= link_to n.name, user_path(n.id) %></strong>:
+          <% if n.recipes.count < 2 %>
+            <%= n.recipes.count %> Recipe</li>
+            <% elsif n.recipes.count == 0 || n.recipes.count > 1%>
+              <%= n.recipes.count %> Recipes</li>
+            <%end %>
+        <%end %>
+        </ul>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <%if current_user_is_following(current_user.id, @user.id) || @user == current_user %>
 
