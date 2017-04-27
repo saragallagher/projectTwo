@@ -32,3 +32,28 @@
   padding: 1em;
   border: 1px solid black;
 }
+
+.btn-success{
+  background-color: #c44727;
+  border-color: #c44727;
+}
+.btn-success:hover{
+  background-color: rgba(196,71,39,0.8);
+  border-color: rgba(196,71,39,0.8);
+}
+.btn-primary{
+  background-color: #283f6d;
+  border-color: #283f6d;
+}
+
+.btn-primary:hover{
+  background-color: rgba(40, 63,109, 0.8);
+  border-color: rgba(40, 63,109, 0.8);
+}
+
+a{
+  color: #283f6d;
+}
+a:hover{
+  color: rgba(40, 63,109, 0.8);
+}

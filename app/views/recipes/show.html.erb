@@ -1,8 +1,8 @@
 <h1> <%= @recipe.title%> </h1>
-<%= link_to 'Return to Profile', user_path(@recipe.user),class: 'btn btn-info' %>
+<%= link_to 'Return to Profile', user_path(@recipe.user),class: 'btn btn-primary' %>
 <% if @recipe.user == current_user %>
-<%= link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-info'  %>
-<%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE',class: 'btn btn-info' %>
+<%= link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-success'  %>
+<%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE',class: 'btn btn-success' %>
 <%end %>
 
 <div class="row">
