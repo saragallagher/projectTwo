@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   root 'recipes#index'
   resources :users
   get '/users/:id/following' => 'users#following', as: :following
+  get '/users/:id/follower' => 'users#follower', as: :follower
+
 
   post ':id/follow_user', to: 'relationships#follow_user', as: :follow_user
   post ':id/unfollow_user', to: 'relationships#unfollow_user', as: :unfollow_user

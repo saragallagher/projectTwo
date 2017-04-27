@@ -1,0 +1,10 @@
+<h3><%= @user.name %>'s followers: </h3>
+<ul>
+<% if @user.followers.count == 0 %>
+  <%= @user.name %> does not have any followers
+<%else %>
+<%@user.followers.each do |n| %>
+<li><%= link_to n.name, user_path(n.id) %></li>
+<%end %>
+</ul>
+<%end %>

@@ -1,6 +1,10 @@
 <h3><%= @user.name %> is following: </h3>
 <ul>
+<% if @user.following.count == 0 %>
+  <%= @user.name %> is not following anyone.
+<%else %>
 <%@user.following.each do |n| %>
 <li><%= link_to n.name, user_path(n.id) %></li>
 <%end %>
 </ul>
+<%end %>

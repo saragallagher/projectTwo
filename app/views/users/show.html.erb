@@ -11,11 +11,12 @@
     <button id='follow-button'><%= link_to 'Follow', follow_user_path, method: :post%></button>
   <%end %>
   <%end %>
-  Followers:
+  <%= link_to 'Followers:', follower_path %>  
+
 
 <%= @user.followers.count %> |
 
-<%= link_to 'Following:', following_path %>  
+<%= link_to 'Following:', following_path %>
 
 <%= @user.following.count %> |
 
