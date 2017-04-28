@@ -4,12 +4,9 @@
       <%= link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-success'  %>
       <%= link_to 'Delete', recipe_path(@recipe), method: 'DELETE',class: 'btn btn-success' %>
     <%end %>
-<h3>Tags</h3>
-  <p>
-    <%= @recipe.tag_list %>
-  </p>
+
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-6">
     <h2>Ingredients</h2>
     <p>
       <% @i = @recipe.ingredients %>
@@ -18,22 +15,32 @@
       <%end %>
     </p>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-6">
     <h2>Instructions</h2>
     <p>
       <%= @recipe.instructions %>
     </p>
   </div>
-  <div class="col-md-3">
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Tags</h3>
+      <p>
+        <%= @recipe.tag_list %>
+      </p>
+  </div>
+  <div class="col-md-4">
     <h2>Difficulty Level </h2>
     <p>
       <%= @recipe.difficulty_level %>
     </p>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
     <h2>Expected Time</h2>
     <p><%= @recipe.time %></p>
   </div>
 </div>
+
+
 
 <%= render 'comments/comment' %>

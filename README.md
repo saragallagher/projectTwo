@@ -1,6 +1,6 @@
 # Project Two
 
-![Alt text] (../logo-small.png)
+![Alt text](logo-small.png)
 
 Think of this website as an online cookbook where you can post your favorite recipes and discover new recipes by following friends! Recipes can be searched through tags and users have the ability to follow other users, as well as comment on recipes. 
 
