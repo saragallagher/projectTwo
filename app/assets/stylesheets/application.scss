@@ -16,7 +16,6 @@
 
 .about-bg{
   padding-top: 4em;
-
   background-repeat: no-repeat;
   background-size: cover;
   background: url("https://images.unsplash.com/photo-1466637574441-749b8f19452f?dpr=0.75&auto=format&fit=crop&w=1080&h=1080&q=80&cs=tinysrgb&crop=&bg=");
@@ -41,7 +40,10 @@
   margin: 4px;
 }
 
-.btn-success{
+.btn-success,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active{
   background-color: #c44727;
   border-color: #c44727;
 }
@@ -49,18 +51,11 @@
   background-color: rgba(196,71,39,0.8);
   border-color: rgba(196,71,39,0.8);
 }
-.btn-success:active{
-  background-color: rgba(196,71,39,0.8);
-  border-color: rgba(196,71,39,0.8);
-}
-.btn-success:visited{
-  background-color: rgba(196,71,39,0.8);
-  border-color: rgba(196,71,39,0.8);
-}
 
-
-
-.btn-primary{
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active{
   background-color: #283f6d;
   border-color: #283f6d;
 }
