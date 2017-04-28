@@ -1,6 +1,6 @@
 # Project Two
 
-![Alt text](logo-small.png)
+![Alt text](/Users/paulgallagher/WDI_workspace/projects/project02/public/logo-small.png)
 
 Think of this website as an online cookbook where you can post your favorite recipes and discover new recipes by following friends! Recipes can be searched through tags and users have the ability to follow other users, as well as comment on recipes. 
 
@@ -32,7 +32,7 @@ Think of this website as an online cookbook where you can post your favorite rec
 
 ###Wireframes: 
 
-/* link to wire frames */
+![Alt txt](/Users/paulgallagher/Desktop/wireframes.png)
 
 ###User Stories: 
 
