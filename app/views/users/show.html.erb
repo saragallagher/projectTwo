@@ -1,30 +1,29 @@
 <% if @user == current_user %>
-<h3>My Profile</h3>
-<%= link_to 'Edit User', edit_user_path, class: 'btn btn-primary' %>
-<%= link_to 'Add Recipe', new_recipe_path, class: 'btn btn-success'  %>
+    <h3>My Profile</h3>
+    <%= link_to 'Edit User', edit_user_path, class: 'btn btn-primary' %>
+    <%= link_to 'Add Recipe', new_recipe_path, class: 'btn btn-success'  %>
 <%else %>
-<h3><%= @user.user_name %></h3>
+    <h3><%= @user.user_name %></h3>
 
-  <%if current_user_is_following(current_user.id, @user.id) %>
-    <%= link_to 'Following', unfollow_user_path, method: :post, id:'unfollow-button',class:"btn btn-primary"%>
-  <%else %>
-    <%= link_to 'Follow', follow_user_path, method: :post, id:'follow-button',class:"btn btn-primary"%>
-  <%end %>
-  <%end %>
-
+    <%if current_user_is_following(current_user.id, @user.id) %>
+      <%= link_to 'Following', unfollow_user_path, method: :post, id:'unfollow-button',class:"btn btn-primary"%>
+    <%else %>
+      <%= link_to 'Follow', follow_user_path, method: :post, id:'follow-button',class:"btn btn-primary"%>
+    <%end %>
+<%end %>
 
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#followers">Followers</button>
 
-
 <div id="followers" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
-<div class="modal-content">
+    <div class="modal-content">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title"><%= @user.name %>'s followers: </h4>
       </div>
+
       <div class="modal-body">
         <ul>
           <% if @user.followers.count == 0 %>
@@ -43,25 +42,26 @@
           <%end %>
       </div>
 
-      <div class="modal-footer">
+    <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+    </div>
+
     </div>
 
   </div>
+
 </div>
 
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#following">Following</button>
 
-
-
 <div id="following" class="modal fade" role="dialog">
-<div class="modal-dialog">
-<div class="modal-content">
+  <div class="modal-dialog">
+    <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title"><%= @user.name %> is following: </h4>
       </div>
+
       <div class="modal-body">
         <ul>
         <% if @user.following.count == 0 %>
@@ -78,27 +78,20 @@
         </ul>
         <%end %>
       </div>
+
     </div>
+
   </div>
+
 </div>
 
-
-
 <%if current_user_is_following(current_user.id, @user.id) || @user == current_user %>
-
-<h3>My Recipes:</h3>
-<ul>
-
-
-<% @user.recipes.each do |p| %>
-  <li><%= link_to p.title, recipe_path(p) %>
-
-
-  </li>
-
-<%end %>
-</ul>
-
-<%else %>
-  <h3>Follow <%= @user.user_name %> to see recipes!</h3>
+  <h3>My Recipes:</h3>
+  <ul>
+    <% @user.recipes.each do |p| %>
+      <li><%= link_to p.title, recipe_path(p) %></li>
+    <%end %>
+  </ul>
+  <%else %>
+    <h3>Follow <%= @user.user_name %> to see recipes!</h3>
 <%end %>
