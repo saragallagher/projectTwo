@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :current_user_is_following, :follow, :unfollow
+  helper_method :current_user, :logged_in?, :current_user_is_following, :follow, :unfollow, :search
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -30,5 +30,11 @@ class ApplicationController < ActionController::Base
 
   def unfollow( user_id)
     @f = Follow.find_by(following_id: user_id).destroy
+  end
+
+  def search()
+    if params[:search]
+      @recipes = Recipe.tagged_with(params[:search]).order("created_at DESC")
+    end
   end
 end

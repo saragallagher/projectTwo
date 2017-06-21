@@ -6,15 +6,21 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all.order('created_at DESC')
     if params[:search]
       @recipes = Recipe.tagged_with(params[:search]).order("created_at DESC")
-      # @recipes = Recipe.search(params[:search]).order('created_at DESC')
     else
       @recipe = Recipe.all.order('created_at DESC')
     end
   end
 
   def show
+
     @recipe = Recipe.find(params[:id])
     @comments = Comment.where(recipe_id: @recipe).order('created_at DESC')
+
+    if params[:search]
+      @search = params[:search]
+
+      redirect_to root_path(@search)
+    end
   end
 
   def new
